@@ -19,6 +19,8 @@
 		ADDCBD85F500688009F850E0 /* Pods_wetransfer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20ABB0FF95BDD362B081192C /* Pods_wetransfer.framework */; };
 		FED4F57C1EB0DBC8009F1AEF /* PM_VR_SBORKA_170426_PART_ONE_v3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FED4F57B1EB0DBBC009F1AEF /* PM_VR_SBORKA_170426_PART_ONE_v3.mp4 */; };
 		FED4F57E1EB0DE01009F1AEF /* PM_VR_SBORKA_170426_PART_THREE_v3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FED4F57D1EB0DDFC009F1AEF /* PM_VR_SBORKA_170426_PART_THREE_v3.mp4 */; };
+		FED4F5821EB0E710009F1AEF /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED4F5801EB0E710009F1AEF /* Fabric.framework */; };
+		FED4F5831EB0E710009F1AEF /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED4F5811EB0E710009F1AEF /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		651E20C8D2900FF3AEB2DBB3 /* Pods-wetransfer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wetransfer.release.xcconfig"; path = "Pods/Target Support Files/Pods-wetransfer/Pods-wetransfer.release.xcconfig"; sourceTree = "<group>"; };
 		FED4F57B1EB0DBBC009F1AEF /* PM_VR_SBORKA_170426_PART_ONE_v3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = PM_VR_SBORKA_170426_PART_ONE_v3.mp4; sourceTree = "<group>"; };
 		FED4F57D1EB0DDFC009F1AEF /* PM_VR_SBORKA_170426_PART_THREE_v3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = PM_VR_SBORKA_170426_PART_THREE_v3.mp4; sourceTree = "<group>"; };
+		FED4F5801EB0E710009F1AEF /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		FED4F5811EB0E710009F1AEF /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,8 +52,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A5E563F1EAE886600A3F520 /* QuartzCore.framework in Frameworks */,
+				FED4F5831EB0E710009F1AEF /* Crashlytics.framework in Frameworks */,
 				4A5E563D1EAE886000A3F520 /* MediaPlayer.framework in Frameworks */,
 				ADDCBD85F500688009F850E0 /* Pods_wetransfer.framework in Frameworks */,
+				FED4F5821EB0E710009F1AEF /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +118,8 @@
 		501E63DC2B229B3CEDB8F1C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FED4F5801EB0E710009F1AEF /* Fabric.framework */,
+				FED4F5811EB0E710009F1AEF /* Crashlytics.framework */,
 				4A5E563E1EAE886600A3F520 /* QuartzCore.framework */,
 				4A5E563C1EAE886000A3F520 /* MediaPlayer.framework */,
 				20ABB0FF95BDD362B081192C /* Pods_wetransfer.framework */,
@@ -141,6 +149,7 @@
 				4A5E56191EAE859100A3F520 /* Resources */,
 				1C78A67714695E05610A822C /* [CP] Embed Pods Frameworks */,
 				2B8F9F1F2D05CFB4C5D79FB1 /* [CP] Copy Pods Resources */,
+				FED4F57F1EB0E6CE009F1AEF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -246,6 +255,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wetransfer/Pods-wetransfer-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		FED4F57F1EB0E6CE009F1AEF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 2c45a8eef14f0d51f9532b9c66d7a21fb78ed3e3 94fd03218685508d7a898f08012f3cb8f8cf1033fdac999e3855fcdbe4abd967";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -381,6 +403,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J4NANQ9H36;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = wetransfer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wetransfer;
@@ -395,6 +421,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J4NANQ9H36;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = wetransfer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wetransfer;
