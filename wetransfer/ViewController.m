@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AVFoundation/AVFoundation.h"
 #import "GVRVideoView.h"
-//#import "GVRWidgetView.h"
+#import "GVRWidgetView.h"
 
 //@class GVROverlayViewController;
 @class GVROverlayView;
@@ -35,26 +35,18 @@
 
 
 -(void)playNext{
-//     [self.video stop];
-//    [self.video removeFromSuperview];
-    GVRVideoView* vr = _vr[_playIndex];
-    
-    
-    [vr setHidesTransitionView:YES];
-    [vr setDisplayMode:kGVRWidgetDisplayModeFullscreenVR];
-    vr.enableInfoButton = NO;
-    vr.enableFullscreenButton = NO;
-    vr.enableCardboardButton = YES;
-    vr.enableTouchTracking = NO;
-    [vr setHidden:NO];
-    [self.view bringSubviewToFront:vr];
-    [vr play];
-    
+    _playIndex++;
+    if (_playIndex > 2) {
+        _playIndex = 0;
+    }
+    NSLog(@"PLAY INDEX %ld",(long)_playIndex);
+    NSURL*url = [self getURLForIndex:_playIndex];
+    [self play3d:url];
     
     SEL selector = NSSelectorFromString(@"fullscreenController");
     if ([self.video respondsToSelector:selector]) {
         @try {
-            UIViewController*ovr =  [vr performSelector:selector];
+            UIViewController*ovr =  [self.video performSelector:selector];
             id v = [ovr performSelector:NSSelectorFromString(@"overlayView")];
             UIButton*b = [v performSelector: NSSelectorFromString(@"backButton")];
             [b setHidden:YES];
@@ -65,25 +57,12 @@
             
         }
     }
+    
 
-    
-    
-    
-    
-//    _playIndex++;
-    if (_playIndex > 2) {
-        _playIndex = 0;
-    }
-//    NSURL *url = [self getURLForIndex:_playIndex];
-//    [self play3d:url];
-//    if (_playIndex == 1) {
-//        [self play3d:url];
-//    }
-//    else
-//    {
-//        [self play2d:url];
-//    }
+
 }
+
+
 
 //-(void)play2d:(NSURL*)url
 //{
@@ -109,16 +88,16 @@
 
 -(void)play3d:(NSURL*)url {
     [_video loadFromUrl:url
-//                      ofType:kGVRVideoTypeMono];
+                      ofType:kGVRVideoTypeMono];
 //                 ofType:kGVRVideoTypeSphericalV2];
-    ofType:kGVRVideoTypeStereoOverUnder];
+//    ofType:kGVRVideoTypeStereoOverUnder];
     
     [_video setHidden:NO];
     _video.delegate = self;
-    [_video setHidesTransitionView:YES];
+//    [_video setHidesTransitionView:YES];
     
     [_video setDisplayMode:kGVRWidgetDisplayModeFullscreenVR];
-    _video.enableInfoButton = NO;
+//    _video.enableInfoButton = NO;
     _video.enableFullscreenButton = NO;
     _video.enableCardboardButton = YES;
     _video.enableTouchTracking = NO;
@@ -143,68 +122,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _isPaused = YES;
-//    _videoSource  = @[@"Part_1",@"Part_2_360",@"Part_3"];
-//    _videoSource  = @[@"PM_VR_SBORKA_170426_1"];
-    
-    
-    NSString *moviePath = [[NSBundle mainBundle] pathForResource:@"Part_1" ofType:@"mp4" ];
-    NSURL *url = [NSURL fileURLWithPath:moviePath];
-    [self play3d:url];
-    
-    
-    
-//    _vr = [NSMutableArray new];
-//    for(NSInteger i = 0; i<3; i++){
-//        
-//        GVRVideoView* vr = [[GVRVideoView alloc] initWithFrame:self.view.bounds];
-//        [self.view addSubview:vr];
-//        [vr setHidden:YES];
-//        
-//        vr.tag = 10+i;
-//        NSURL *url = [self getURLForIndex:i];
-//        if (i==1) {
-//            [vr loadFromUrl:url
-//                     ofType:kGVRVideoTypeMono];
-////                             ofType:kGVRVideoTypeSphericalV2];
-//            //    ofType:kGVRVideoTypeStereoOverUnder];
-//        }
-//        else{
-//            [vr loadFromUrl:url
-//                     ofType:kGVRVideoTypeMono];
-//        }
-//        
-//        
-////        [vr setHidden:NO];
-//        vr.delegate = self;
-////        [vr setHidesTransitionView:YES];        
-////        [vr setDisplayMode:kGVRWidgetDisplayModeFullscreenVR];
-////        vr.enableInfoButton = NO;
-////        vr.enableFullscreenButton = NO;
-////        vr.enableCardboardButton = YES;
-////        vr.enableTouchTracking = NO;
-////        
-////        SEL selector = NSSelectorFromString(@"fullscreenController");
-////        if ([vr respondsToSelector:selector]) {
-////            @try {
-////                UIViewController*ovr =  [vr performSelector:selector];
-////                id v = [ovr performSelector:NSSelectorFromString(@"overlayView")];
-////                UIButton*b = [v performSelector: NSSelectorFromString(@"backButton")];
-////                [b setHidden:YES];
-////                
-////            } @catch (NSException *exception) {
-////                
-////            } @finally {
-////                
-////            }
-////        }
-//        [_vr addObject:vr];
-//    }
-    
-    
-    _playIndex = 0;
-//    [_video setHidden:YES];
-//    [self playNext];
-    
+    _videoSource  = @[@"PM_VR_SBORKA_170426_PART_ONE_v3",@"Part_2_360",@"PM_VR_SBORKA_170426_PART_THREE_v3"];
+    _playIndex = -1;
+    [self playNext];
 }
 
 //-(void)itemDidFinishPlaying:(NSNotification *) notification {
@@ -230,15 +150,7 @@
 
 - (void)widgetView:(GVRWidgetView *)widgetView didLoadContent:(id)content {
     NSLog(@"Finished loading video");
-//    if(widgetView.tag-10 == _playIndex){
-//        if (_isPaused == YES) {
-//            [self playNext];
-//            _isPaused = NO;
-//        }
-//        
-//    }
-//    [_video setHidden:NO];
-    [_video play];
+    [_video resume];
     _isPaused = NO;
 }
 
@@ -253,9 +165,11 @@ didFailToLoadContent:(id)content
     // Loop the video when it reaches the end.
     
     NSLog(@"%f, %f",position, videoView.duration);
+    
     if (position == videoView.duration) {
-        [_video seekTo:0];
-        [_video play];
+        [self playNext];
+//        [_video seekTo:0];
+//        [_video resume];
 //        [_video stop];
         
         

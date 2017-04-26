@@ -20,6 +20,8 @@
 		4AC94C6E1EB0A85D006E9650 /* Part_2_360.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC94C6B1EB0A810006E9650 /* Part_2_360.mp4 */; };
 		4AC94C6F1EB0A85D006E9650 /* Part_3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4AC94C6C1EB0A810006E9650 /* Part_3.mp4 */; };
 		ADDCBD85F500688009F850E0 /* Pods_wetransfer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20ABB0FF95BDD362B081192C /* Pods_wetransfer.framework */; };
+		FED4F57C1EB0DBC8009F1AEF /* PM_VR_SBORKA_170426_PART_ONE_v3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FED4F57B1EB0DBBC009F1AEF /* PM_VR_SBORKA_170426_PART_ONE_v3.mp4 */; };
+		FED4F57E1EB0DE01009F1AEF /* PM_VR_SBORKA_170426_PART_THREE_v3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FED4F57D1EB0DDFC009F1AEF /* PM_VR_SBORKA_170426_PART_THREE_v3.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		4AC94C6B1EB0A810006E9650 /* Part_2_360.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Part_2_360.mp4; sourceTree = "<group>"; };
 		4AC94C6C1EB0A810006E9650 /* Part_3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Part_3.mp4; sourceTree = "<group>"; };
 		651E20C8D2900FF3AEB2DBB3 /* Pods-wetransfer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wetransfer.release.xcconfig"; path = "Pods/Target Support Files/Pods-wetransfer/Pods-wetransfer.release.xcconfig"; sourceTree = "<group>"; };
+		FED4F57B1EB0DBBC009F1AEF /* PM_VR_SBORKA_170426_PART_ONE_v3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = PM_VR_SBORKA_170426_PART_ONE_v3.mp4; sourceTree = "<group>"; };
+		FED4F57D1EB0DDFC009F1AEF /* PM_VR_SBORKA_170426_PART_THREE_v3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = PM_VR_SBORKA_170426_PART_THREE_v3.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 		4A5E56351EAE870100A3F520 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FED4F57D1EB0DDFC009F1AEF /* PM_VR_SBORKA_170426_PART_THREE_v3.mp4 */,
+				FED4F57B1EB0DBBC009F1AEF /* PM_VR_SBORKA_170426_PART_ONE_v3.mp4 */,
 				4AC94C6A1EB0A810006E9650 /* Part_1.mp4 */,
 				4AC94C6B1EB0A810006E9650 /* Part_2_360.mp4 */,
 				4AC94C6C1EB0A810006E9650 /* Part_3.mp4 */,
@@ -193,6 +199,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FED4F57E1EB0DE01009F1AEF /* PM_VR_SBORKA_170426_PART_THREE_v3.mp4 in Resources */,
+				FED4F57C1EB0DBC8009F1AEF /* PM_VR_SBORKA_170426_PART_ONE_v3.mp4 in Resources */,
 				4AC94C6D1EB0A85D006E9650 /* Part_1.mp4 in Resources */,
 				4AC94C6E1EB0A85D006E9650 /* Part_2_360.mp4 in Resources */,
 				4AC94C6F1EB0A85D006E9650 /* Part_3.mp4 in Resources */,
@@ -327,7 +335,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -370,7 +378,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -384,6 +392,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J4NANQ9H36;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = wetransfer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wetransfer;
@@ -397,6 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J4NANQ9H36;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = wetransfer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wetransfer;
@@ -414,7 +424,7 @@
 				4A5E56311EAE859100A3F520 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		4A5E56321EAE859100A3F520 /* Build configuration list for PBXNativeTarget "wetransfer" */ = {
 			isa = XCConfigurationList;
@@ -423,7 +433,7 @@
 				4A5E56341EAE859100A3F520 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
