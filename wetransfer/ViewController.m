@@ -23,6 +23,7 @@
     BOOL _isPaused;
     NSArray*_videoSource;
     NSInteger _playIndex;
+    NSInteger _playVideosCount;
 }
 
 -(NSURL*)getURLForIndex:(NSInteger)index{
@@ -33,7 +34,7 @@
 
 -(void)playNext{
     _playIndex++;
-    if (_playIndex > 2) {
+    if (_playIndex >= _playVideosCount) {
         _playIndex = 0;
     }
     NSLog(@"PLAY INDEX %ld",(long)_playIndex);
@@ -93,8 +94,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _isPaused = YES;
-    _videoSource  = @[@"PM_VR_SBORKA_170426_PART_ONE_v3",@"Part_2_360",@"PM_VR_SBORKA_170426_PART_THREE_v3"];
+    _videoSource  = @[@"PM_VR_SBORKA_170427_v2"];
+//    _videoSource  = @[@"PM_VR_SBORKA_170426_PART_ONE_v3",@"Part_2_360",@"PM_VR_SBORKA_170426_PART_THREE_v3"];
     _playIndex = -1;
+    _playVideosCount = [_videoSource count];
     [self playNext];
 }
 
@@ -107,7 +110,7 @@
 
 - (void)widgetViewDidTap:(GVRWidgetView *)widgetView {
     if (_isPaused) {
-        [_video resume];
+        [_video play];
     } else {
         [_video pause];
     }
@@ -116,7 +119,7 @@
 
 - (void)widgetView:(GVRWidgetView *)widgetView didLoadContent:(id)content {
     NSLog(@"Finished loading video");
-    [_video resume];
+    [_video play];
     _isPaused = NO;
 }
 
