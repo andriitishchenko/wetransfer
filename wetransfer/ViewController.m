@@ -25,37 +25,37 @@
     NSInteger _playIndex;
     NSInteger _playVideosCount;
 }
-
--(NSURL*)getURLForIndex:(NSInteger)index{
-    NSString *moviePath = [[NSBundle mainBundle] pathForResource:_videoSource[index] ofType:@"mp4" ];
-    return [NSURL fileURLWithPath:moviePath];
-}
-
-
--(void)playNext{
-    _playIndex++;
-    if (_playIndex >= _playVideosCount) {
-        _playIndex = 0;
-    }
-    NSLog(@"PLAY INDEX %ld",(long)_playIndex);
-    NSURL*url = [self getURLForIndex:_playIndex];
-    [self play3d:url];
-    
-    SEL selector = NSSelectorFromString(@"fullscreenController");
-    if ([self.video respondsToSelector:selector]) {
-        @try {
-            UIViewController*ovr =  [self.video performSelector:selector];
-            id v = [ovr performSelector:NSSelectorFromString(@"overlayView")];
-            UIButton*b = [v performSelector: NSSelectorFromString(@"backButton")];
-            [b setHidden:YES];
-            
-        } @catch (NSException *exception) {
-            
-        } @finally {
-            
-        }
-    }
-}
+//
+//-(NSURL*)getURLForIndex:(NSInteger)index{
+//    NSString *moviePath = [[NSBundle mainBundle] pathForResource:_videoSource[index] ofType:@"mp4" ];
+//    return [NSURL fileURLWithPath:moviePath];
+//}
+//
+//
+//-(void)playNext{
+//    _playIndex++;
+//    if (_playIndex >= _playVideosCount) {
+//        _playIndex = 0;
+//    }
+//    NSLog(@"PLAY INDEX %ld",(long)_playIndex);
+//    NSURL*url = [self getURLForIndex:_playIndex];
+//    [self play3d:url];
+//    
+//    SEL selector = NSSelectorFromString(@"fullscreenController");
+//    if ([self.video respondsToSelector:selector]) {
+//        @try {
+//            UIViewController*ovr =  [self.video performSelector:selector];
+//            id v = [ovr performSelector:NSSelectorFromString(@"overlayView")];
+//            UIButton*b = [v performSelector: NSSelectorFromString(@"backButton")];
+//            [b setHidden:YES];
+//            
+//        } @catch (NSException *exception) {
+//            
+//        } @finally {
+//            
+//        }
+//    }
+//}
 
 
 -(void)play3d:(NSURL*)url {
@@ -94,11 +94,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _isPaused = YES;
-    _videoSource  = @[@"PM_VR_SBORKA_170427_v2"];
-//    _videoSource  = @[@"PM_VR_SBORKA_170426_PART_ONE_v3",@"Part_2_360",@"PM_VR_SBORKA_170426_PART_THREE_v3"];
-    _playIndex = -1;
-    _playVideosCount = [_videoSource count];
-    [self playNext];
+    
+    NSString *moviePath = [[NSBundle mainBundle] pathForResource:@"PM_VR_SBORKA_170501" ofType:@"mp4" ];
+    NSURL*url = [NSURL fileURLWithPath:moviePath];
+    [self play3d:url];
+    
+    
+//    _videoSource  = @[@"PM_VR_SBORKA_170501"];
+////    _videoSource  = @[@"PM_VR_SBORKA_170426_PART_ONE_v3",@"Part_2_360",@"PM_VR_SBORKA_170426_PART_THREE_v3"];
+//    _playIndex = -1;
+//    _playVideosCount = [_videoSource count];
+//    [self playNext];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -132,7 +138,9 @@ didFailToLoadContent:(id)content
 
 - (void)videoView:(GVRVideoView*)videoView didUpdatePosition:(NSTimeInterval)position {
     if (position == videoView.duration) {
-        [self playNext];
+//        [self playNext];
+        [videoView seekTo:0];
+        [videoView play];
     }
 }
 @end
