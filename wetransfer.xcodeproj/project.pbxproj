@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A3A04891EB9390200F2B2E0 /* PM_VR_SBORKA_170501.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A3A04881EB938DC00F2B2E0 /* PM_VR_SBORKA_170501.mp4 */; };
+		4A19BEE01ED3705000E92C35 /* PM_VR_SBORKA_170517.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4A19BEDF1ED3703800E92C35 /* PM_VR_SBORKA_170517.mp4 */; };
 		4A5E56201EAE859100A3F520 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5E561F1EAE859100A3F520 /* main.m */; };
 		4A5E56231EAE859100A3F520 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5E56221EAE859100A3F520 /* AppDelegate.m */; };
 		4A5E56261EAE859100A3F520 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5E56251EAE859100A3F520 /* ViewController.m */; };
@@ -16,6 +16,7 @@
 		4A5E562E1EAE859100A3F520 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A5E562C1EAE859100A3F520 /* LaunchScreen.storyboard */; };
 		4A5E563D1EAE886000A3F520 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5E563C1EAE886000A3F520 /* MediaPlayer.framework */; };
 		4A5E563F1EAE886600A3F520 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A5E563E1EAE886600A3F520 /* QuartzCore.framework */; };
+		4ADE81E91ED4913D003C3C92 /* reload_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ADE81E81ED4913D003C3C92 /* reload_button.png */; };
 		ADDCBD85F500688009F850E0 /* Pods_wetransfer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20ABB0FF95BDD362B081192C /* Pods_wetransfer.framework */; };
 		FED4F5821EB0E710009F1AEF /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED4F5801EB0E710009F1AEF /* Fabric.framework */; };
 		FED4F5831EB0E710009F1AEF /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED4F5811EB0E710009F1AEF /* Crashlytics.framework */; };
@@ -24,7 +25,7 @@
 /* Begin PBXFileReference section */
 		105744B95527F356F65DF817 /* Pods-wetransfer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wetransfer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wetransfer/Pods-wetransfer.debug.xcconfig"; sourceTree = "<group>"; };
 		20ABB0FF95BDD362B081192C /* Pods_wetransfer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wetransfer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A3A04881EB938DC00F2B2E0 /* PM_VR_SBORKA_170501.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = PM_VR_SBORKA_170501.mp4; sourceTree = "<group>"; };
+		4A19BEDF1ED3703800E92C35 /* PM_VR_SBORKA_170517.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = PM_VR_SBORKA_170517.mp4; sourceTree = "<group>"; };
 		4A5E561B1EAE859100A3F520 /* wetransfer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wetransfer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A5E561F1EAE859100A3F520 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4A5E56211EAE859100A3F520 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -37,6 +38,7 @@
 		4A5E562F1EAE859100A3F520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A5E563C1EAE886000A3F520 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		4A5E563E1EAE886600A3F520 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4ADE81E81ED4913D003C3C92 /* reload_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload_button.png; sourceTree = "<group>"; };
 		651E20C8D2900FF3AEB2DBB3 /* Pods-wetransfer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wetransfer.release.xcconfig"; path = "Pods/Target Support Files/Pods-wetransfer/Pods-wetransfer.release.xcconfig"; sourceTree = "<group>"; };
 		FED4F5801EB0E710009F1AEF /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		FED4F5811EB0E710009F1AEF /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				4A5E56351EAE870100A3F520 /* Resources */,
 				4A5E56211EAE859100A3F520 /* AppDelegate.h */,
+				4ADE81E81ED4913D003C3C92 /* reload_button.png */,
 				4A5E56221EAE859100A3F520 /* AppDelegate.m */,
 				4A5E56241EAE859100A3F520 /* ViewController.h */,
 				4A5E56251EAE859100A3F520 /* ViewController.m */,
@@ -104,7 +107,7 @@
 		4A5E56351EAE870100A3F520 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4A3A04881EB938DC00F2B2E0 /* PM_VR_SBORKA_170501.mp4 */,
+				4A19BEDF1ED3703800E92C35 /* PM_VR_SBORKA_170517.mp4 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -193,7 +196,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A3A04891EB9390200F2B2E0 /* PM_VR_SBORKA_170501.mp4 in Resources */,
+				4A19BEE01ED3705000E92C35 /* PM_VR_SBORKA_170517.mp4 in Resources */,
+				4ADE81E91ED4913D003C3C92 /* reload_button.png in Resources */,
 				4A5E562E1EAE859100A3F520 /* LaunchScreen.storyboard in Resources */,
 				4A5E562B1EAE859100A3F520 /* Assets.xcassets in Resources */,
 				4A5E56291EAE859100A3F520 /* Main.storyboard in Resources */,

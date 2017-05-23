@@ -15,6 +15,7 @@
 //@class GVROverlayViewController;
 @class GVROverlayView;
 @interface ViewController ()<GVRVideoViewDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *restartButton;
 @property (weak, nonatomic) IBOutlet GVRVideoView *video;
 @end
 
@@ -82,6 +83,29 @@
             UIButton*b = [v performSelector: NSSelectorFromString(@"backButton")];
             [b setHidden:YES];
             
+            [v addSubview:self.restartButton];
+            
+            NSLayoutConstraint *constraintVertical = [NSLayoutConstraint constraintWithItem:
+                                                      self.restartButton
+                  attribute:NSLayoutAttributeCenterX
+                  relatedBy:NSLayoutRelationEqual
+                     toItem:v
+                  attribute:NSLayoutAttributeCenterX
+                 multiplier:1.0f
+                   constant:0.0f];
+            
+            NSLayoutConstraint *constraintHorizontal = [NSLayoutConstraint constraintWithItem:
+                self.restartButton
+                attribute:NSLayoutAttributeCenterY
+                relatedBy:NSLayoutRelationEqual
+                   toItem:v
+                attribute:NSLayoutAttributeCenterY
+               multiplier:1.0f
+                 constant:0.0f];
+
+            [v addConstraint:constraintVertical];
+            [v addConstraint:constraintHorizontal];
+            
         } @catch (NSException *exception) {
             
         } @finally {
@@ -93,9 +117,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.restartButton removeFromSuperview];
+    self.restartButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.restartButton setHidden:YES];
+    self.restartButton.clipsToBounds = YES;
+    self.restartButton.layer.cornerRadius = CGRectGetWidth(self.restartButton.bounds)/2.0f;
+//    self.restartButton.layer.borderColor=[UIColor redColor].CGColor;
+//    self.restartButton.layer.borderWidth=2.0f;
+    
     _isPaused = YES;
     
-    NSString *moviePath = [[NSBundle mainBundle] pathForResource:@"PM_VR_SBORKA_170501" ofType:@"mp4" ];
+    NSString *moviePath = [[NSBundle mainBundle] pathForResource:@"PM_VR_SBORKA_170517" ofType:@"mp4" ];
     NSURL*url = [NSURL fileURLWithPath:moviePath];
     [self play3d:url];
     
@@ -140,7 +172,13 @@ didFailToLoadContent:(id)content
     if (position == videoView.duration) {
 //        [self playNext];
         [videoView seekTo:0];
-        [videoView play];
+        [self.restartButton setHidden:NO];
+//        [videoView play];
     }
+}
+- (IBAction)restartButton_Click:(id)sender {
+    [_video seekTo:0];
+    [_video play];
+    [self.restartButton setHidden:YES];
 }
 @end

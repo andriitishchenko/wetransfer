@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,7 +23,25 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UzO-LT-8GB" customClass="GVRVideoView">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZM-sK-clp">
+                                        <rect key="frame" x="112.5" y="248.5" width="150" height="150"/>
+                                        <color key="backgroundColor" red="1" green="0.29562823547471528" blue="0.30942314901072254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="COX-vO-T6x"/>
+                                            <constraint firstAttribute="height" constant="150" id="CrO-kz-Ash"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="reload_button.png"/>
+                                        <connections>
+                                            <action selector="restartButton_Click:" destination="BYZ-38-t0r" eventType="touchDragInside" id="uMK-3W-3HF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="HZM-sK-clp" firstAttribute="centerY" secondItem="UzO-LT-8GB" secondAttribute="centerY" id="Pxt-6o-8iz"/>
+                                    <constraint firstItem="HZM-sK-clp" firstAttribute="centerX" secondItem="UzO-LT-8GB" secondAttribute="centerX" id="mpS-QA-xQO"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,11 +53,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="restartButton" destination="HZM-sK-clp" id="jxI-zS-J47"/>
                         <outlet property="video" destination="UzO-LT-8GB" id="7c0-VV-IKr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="81.409295352323838"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="reload_button.png" width="240" height="242"/>
+    </resources>
 </document>
