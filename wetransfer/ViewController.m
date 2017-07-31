@@ -12,7 +12,6 @@
 #import "GVRVideoView.h"
 #import "GVRWidgetView.h"
 
-//@class GVROverlayViewController;
 @class GVROverlayView;
 @interface ViewController ()<GVRVideoViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *restartButton;
@@ -26,51 +25,15 @@
     NSInteger _playIndex;
     NSInteger _playVideosCount;
 }
-//
-//-(NSURL*)getURLForIndex:(NSInteger)index{
-//    NSString *moviePath = [[NSBundle mainBundle] pathForResource:_videoSource[index] ofType:@"mp4" ];
-//    return [NSURL fileURLWithPath:moviePath];
-//}
-//
-//
-//-(void)playNext{
-//    _playIndex++;
-//    if (_playIndex >= _playVideosCount) {
-//        _playIndex = 0;
-//    }
-//    NSLog(@"PLAY INDEX %ld",(long)_playIndex);
-//    NSURL*url = [self getURLForIndex:_playIndex];
-//    [self play3d:url];
-//    
-//    SEL selector = NSSelectorFromString(@"fullscreenController");
-//    if ([self.video respondsToSelector:selector]) {
-//        @try {
-//            UIViewController*ovr =  [self.video performSelector:selector];
-//            id v = [ovr performSelector:NSSelectorFromString(@"overlayView")];
-//            UIButton*b = [v performSelector: NSSelectorFromString(@"backButton")];
-//            [b setHidden:YES];
-//            
-//        } @catch (NSException *exception) {
-//            
-//        } @finally {
-//            
-//        }
-//    }
-//}
-
 
 -(void)play3d:(NSURL*)url {
     [_video loadFromUrl:url
                       ofType:kGVRVideoTypeMono];
-//                 ofType:kGVRVideoTypeSphericalV2];
-//    ofType:kGVRVideoTypeStereoOverUnder];
     
     [_video setHidden:NO];
     _video.delegate = self;
-//    [_video setHidesTransitionView:YES];
     
     [_video setDisplayMode:kGVRWidgetDisplayModeFullscreenVR];
-//    _video.enableInfoButton = NO;
     _video.enableFullscreenButton = NO;
     _video.enableCardboardButton = YES;
     _video.enableTouchTracking = NO;
@@ -112,7 +75,6 @@
             
         }
     }
-    
 }
 
 - (void)viewDidLoad {
@@ -122,21 +84,12 @@
     [self.restartButton setHidden:YES];
     self.restartButton.clipsToBounds = YES;
     self.restartButton.layer.cornerRadius = CGRectGetWidth(self.restartButton.bounds)/2.0f;
-//    self.restartButton.layer.borderColor=[UIColor redColor].CGColor;
-//    self.restartButton.layer.borderWidth=2.0f;
     
     _isPaused = YES;
     
-    NSString *moviePath = [[NSBundle mainBundle] pathForResource:@"PM_VR_SBORKA_170517" ofType:@"mp4" ];
+    NSString *moviePath = [[NSBundle mainBundle] pathForResource:@"PM_VR_SBORKA_170609" ofType:@"mp4" ];
     NSURL*url = [NSURL fileURLWithPath:moviePath];
     [self play3d:url];
-    
-    
-//    _videoSource  = @[@"PM_VR_SBORKA_170501"];
-////    _videoSource  = @[@"PM_VR_SBORKA_170426_PART_ONE_v3",@"Part_2_360",@"PM_VR_SBORKA_170426_PART_THREE_v3"];
-//    _playIndex = -1;
-//    _playVideosCount = [_videoSource count];
-//    [self playNext];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -170,10 +123,8 @@ didFailToLoadContent:(id)content
 
 - (void)videoView:(GVRVideoView*)videoView didUpdatePosition:(NSTimeInterval)position {
     if (position == videoView.duration) {
-//        [self playNext];
         [videoView seekTo:0];
         [self.restartButton setHidden:NO];
-//        [videoView play];
     }
 }
 - (IBAction)restartButton_Click:(id)sender {
